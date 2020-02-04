@@ -40,7 +40,7 @@ object NotificationHelper {
         val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
 
         val builder = NotificationCompat.Builder(context, CustomJobService.CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_launcher)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle("Adjoe Challenge")
             .setContentText("Time elapsed since last time: $timeElapsed")
             .setPriority(NotificationCompat.PRIORITY_HIGH)

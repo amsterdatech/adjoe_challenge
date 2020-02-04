@@ -2,6 +2,7 @@ package br.com.improving.adjoechallenge
 
 import android.app.Activity
 import android.os.AsyncTask
+import org.json.JSONArray
 import java.io.BufferedInputStream
 import java.io.IOException
 import java.net.HttpURLConnection
@@ -25,7 +26,7 @@ class JSONDownloader(private val activity: Activity) : AsyncTask<String, Void, S
                     val error = result
                 }
                 else -> {
-                    (activity as MainActivity).updateItems(App.parseJsonString(result))
+                    (activity as MainActivity).updateItems(parseJsonString(result))
                 }
             }
         }
@@ -79,5 +80,21 @@ class JSONDownloader(private val activity: Activity) : AsyncTask<String, Void, S
             e.printStackTrace()
             return "Error " + e.message
         }
+    }
+
+    private fun parseJsonString(jsonString: String): List<Album> {
+        val albumJsonArray = JSONArray(jsonString)
+        val albumItems = mutableListOf<Album>()
+
+        for (i in 0 until albumJsonArray.length()) {
+            val album = albumJsonArray.getJSONObject(i)
+
+            val title = album.getString("title")
+            val userId = album.getInt("userId")
+            val id = album.getInt("id")
+            albumItems.add(Album(title = title, userId = userId, id = id))
+        }
+
+        return albumItems
     }
 }

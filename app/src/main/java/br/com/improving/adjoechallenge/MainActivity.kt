@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
                 )
             )
 
+            setHasFixedSize(true)
             adapter = this@MainActivity.adapter
         }
     }
