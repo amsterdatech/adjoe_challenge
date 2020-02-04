@@ -1,7 +1,3 @@
-
-![Adjoe]
-(https://media-exp1.licdn.com/dms/image/C4D0BAQGqxsXGmKydCA/company-logo_200_200/0?e=1588809600&v=beta&t=z8UslCu0cV2mywtB_AeBLUxbcjXtn_69xQK2-7_91_o)
-
 # Task: Java android is your friend - 2h task
 Please install on your computer: Android studio and an Android emulator
 Please write Java code (no Kotlin). Please do not use any third-party libraries. The app should be able to run on every device from Android 5.0 on.
